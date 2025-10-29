@@ -13,21 +13,6 @@ services:
       - ausleihe
     restart: unless-stopped
 
-  # Diese Services sind bereits vorhanden, aber hier als Referenz
-  # pwa-app:
-  #   image: pwa-app:0.0.9
-  #   container_name: pwa-app
-  #   networks:
-  #     - ausleihe
-  #   restart: unless-stopped
-  
-  # pwa-server:
-  #   image: pwa-server:0.0.3
-  #   container_name: pwa-server
-  #   networks:
-  #     - ausleihe
-  #   restart: unless-stopped
-
 networks:
   ausleihe:
     external: true
