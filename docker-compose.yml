@@ -2,13 +2,12 @@ version: '3.8'
 
 services:
   nginx:
-    image: nginx:alpine
+    build: .
     container_name: pwa-nginx
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - /home/administrator/ssl:/etc/nginx/ssl:ro
     networks:
       - ausleihe
