@@ -3,7 +3,7 @@ FROM nginx:alpine
 # Kopiere die nginx Konfiguration
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-# Erstelle das SSL-Verzeichnis im Container
+# Erstelle das SSL-Verzeichnis im Container (für Volume-Mount)
 RUN mkdir -p /etc/nginx/ssl
 
 # Exponiere die Ports
