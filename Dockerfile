@@ -1,11 +1,7 @@
 FROM nginx:alpine
 
-# Kopiere die nginx Konfiguration als Template
-COPY nginx/nginx.conf /etc/nginx/nginx.conf.template
-
-# Kopiere das Entrypoint-Script
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
+# Kopiere die nginx Konfiguration
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Erstelle die notwendigen Verzeichnisse
 RUN mkdir -p /etc/nginx/ssl && \
@@ -15,5 +11,5 @@ RUN mkdir -p /etc/nginx/ssl && \
 # Exponiere die Ports
 EXPOSE 80 443
 
-# Verwende das Entrypoint-Script
-ENTRYPOINT ["/docker-entrypoint.sh"]
+# Starte nginx im Vordergrund
+CMD ["nginx", "-g", "daemon off;"]
